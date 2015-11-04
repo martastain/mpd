@@ -9,6 +9,11 @@ from .constants import *
 class SegmentTemplate():
     def __init__(self, **kwargs):
         self.attrs = [
+            ["media",                kwargs.get("media", None)],
+            ["index",                kwargs.get("index", None)],
+            ["initialization",       kwargs.get("initialization", None)],
+            ["bitstreamSwitching",   kwargs.get("bitstreamSwitching", None)],
+            ["startNumber",          kwargs.get("startNumber", None)]
         ]
 
     @property 
@@ -49,8 +54,8 @@ class Period():
     def __init__(self, id, **kwargs):
         self.id = id
         self.attrs = [
-            ["id"       : id],
-            ["start"    : "PT0S"]
+            ["id",       id],
+            ["start",    "PT0S"]
         ]
         self.adaptation_sets = []
 
