@@ -4,7 +4,6 @@ MPD_XSI_LOCATION = "urn:mpeg:dash:schema:mpd:2011 http://standards.iso.org/ittf/
 MPD_PROFILES = "urn:mpeg:dash:profile:isoff-live:2011,urn:com:dashif:dash264"
 
 
-
 SEGMENT_BASE_TYPE_KEYS = [
         "timescale",
         "presentationTimeOffset",
