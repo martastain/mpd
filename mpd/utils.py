@@ -1,3 +1,6 @@
+__all__ = ["indent", "mk_xml_attrs", "mk_xml_tag"]
+
+
 def indent(src, l=4):
     result = ""
     for line in src.split("\n"):
@@ -7,14 +10,14 @@ def indent(src, l=4):
     return result
 
 
-def xml_attrs(attrs):
+def mk_xml_attrs(attrs):
     return " ".join(["{}=\"{}\"".format(key, attrs[key]) for key in attrs if attrs[key] is not None])
 
 
-def mk_tag(name, attrs, contents=[]):
+def mk_xml_tag(name, attrs, contents=[]):
     result = "<{}".format(name)
     if attrs:
-        result += " " + xml_attrs(attrs)
+        result += " " + mk_xml_attrs(attrs)
     if not contents:
         result += "/>"
     else:
