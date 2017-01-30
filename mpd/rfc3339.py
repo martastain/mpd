@@ -345,6 +345,8 @@ def utctotimestamp(dt):
 def datetimetostr(dt):
     """Return a RFC3339 date-time string corresponding to the given
     datetime object."""
+    if dt.utcoffset().total_seconds() == 0:
+        return dt.isoformat().replace("+00:00", "Z")
     if dt.utcoffset() is not None:
         return dt.isoformat()
     else:
