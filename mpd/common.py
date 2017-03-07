@@ -1,3 +1,5 @@
+import time
+
 from .constants import *
 from .utils import *
 from .rfc3339 import timestamptostr as rfc_time
@@ -9,6 +11,8 @@ class BaseObject(object):
     def __init__(self, parent=None, **kwargs):
         self.parent = parent
         self.attrib = {}
+        for key in self.defaults:
+            self.attrib[key] = self.defaults[key]
         for key in kwargs:
             if not key in self.keys:
                 raise KeyError, "Unexpected key {}".format(key)
@@ -25,4 +29,3 @@ class BaseObject(object):
     def set_time(self, key, value):
         assert type(value) in [int, float]
         self[key] = rfc_time(value)
-

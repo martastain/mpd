@@ -23,19 +23,13 @@ class MPD(BaseObject):
         ]
 
     defaults = {
-            "xmlns:xsi" : MPD_XMLNS_XSI,
             "xmlns" : MPD_XMLNS,
-            "xsi:schemaLocation" : MPD_XSI_LOCATION,
-            "profiles" : MPD_PROFILES,
             "profiles" : MPD_PROFILES,
             "type" : "dynamic",
-            "availabilityStartTime" : rfc_time(time.time()),
-            "publishTime" : rfc_time(time.time()),
-            "minimumUpdatePeriod" : "PT10S",
-            "minBufferTime" : "PT1S",
-            "timeShiftBufferDepth" : "PT10S",
-            "maxSegmentDuration" : "PT10S",
-            "maxSubsegmentDuration" : "PT10S"
+            "minimumUpdatePeriod" : "PT2S",
+            "minBufferTime" : "PT8S",
+            "timeshiftBufferDepth" : "PT5M",
+            "maxSegmentDuration" : "PT2S"
         }
 
     def __init__(self, **kwargs):
