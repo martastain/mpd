@@ -9,9 +9,16 @@ def indent(src, l=4):
        result += "\n"
     return result
 
+def attr_format(val):
+    if val is True:
+        return "true"
+    elif val is False:
+        return "false"
+    return val
+
 
 def mk_xml_attrs(attrs):
-    return " ".join(["{}=\"{}\"".format(key, attrs[key]) for key in attrs if attrs[key] is not None])
+    return " ".join(["{}=\"{}\"".format(key, attr_format(attrs[key])) for key in attrs if attrs[key] is not None])
 
 
 def mk_xml_tag(name, attrs, contents=[]):
