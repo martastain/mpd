@@ -8,21 +8,20 @@ class BaseObject(object):
     keys = []
     defaults = {}
 
-    def __init__(self, parent=None, **kwargs):
+    def __init__(self, parent=None, strict=True, **kwargs):
         self.parent = parent
+        self.strict = strict
         self.attrib = {}
         for key in self.defaults:
             self.attrib[key] = self.defaults[key]
         for key in kwargs:
-            if not key in self.keys:
-                raise KeyError, "Unexpected key {}".format(key)
-            self.attrib[key] = kwargs[key]
+            self[key] = kwargs[key]
 
     def __getitem__(self, key):
         return self.attrib.get(key, None)
 
     def __setitem__(self, key, value):
-        if not key in self.keys:
+        if self.strict and not key in self.keys:
             raise KeyError, "Unexpected key {}".format(key)
         self.attrib[key] = value
 

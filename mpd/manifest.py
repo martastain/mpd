@@ -20,6 +20,7 @@ class MPD(BaseObject):
             "suggestedPresentationDelay",
             "maxSegmentDuration",
             "maxSubsegmentDuration"
+            "schemaLocation"
         ]
 
     defaults = {
@@ -28,7 +29,6 @@ class MPD(BaseObject):
             "type" : "dynamic",
             "minimumUpdatePeriod" : "PT2S",
             "minBufferTime" : "PT8S",
-            "timeshiftBufferDepth" : "PT5M",
             "maxSegmentDuration" : "PT2S"
         }
 
