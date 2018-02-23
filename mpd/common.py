@@ -22,7 +22,7 @@ class BaseObject(object):
 
     def __setitem__(self, key, value):
         if self.strict and not key in self.keys:
-            raise KeyError, "Unexpected key {}".format(key)
+            raise KeyError("Unexpected key {}".format(key))
         self.attrib[key] = value
 
     def set_time(self, key, value):
